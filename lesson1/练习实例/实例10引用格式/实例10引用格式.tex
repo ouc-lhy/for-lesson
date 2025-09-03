@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+% \usepackage[numbers,sort&compress]{natbib} % 可选：使用natbib宏包 (取消注释以启用)
+
+\title{LaTeX 实验报告 - 引用格式练习}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle
+
+% --- 正文开始 ---
+\section{引言}
+LaTeX允许通过更改 \texttt{\textbackslash bibliographystyle} 来轻松切换参考文献的引用格式。Knuth的工作 \cite{knuth1984} 是基础。Lamport的著作 \cite{lamport1994} 是标准参考。在线资源 \cite{wiki2025} 也很有帮助。
+
+% --- 演示 \nocite ---
+% 即使未在正文中引用，也想列出某文献
+\nocite{book2020} 
+
+% --- 生成参考文献列表 ---
+% 尝试不同的样式，编译后观察效果
+\bibliographystyle{plain} % 基本格式：数字编号，全称
+% \bibliographystyle{abbrv}  % 缩写格式：作者名、期刊名缩写
+% \bibliographystyle{alpha}  % 字母编号格式：如 [Knu84]
+% \bibliographystyle{unsrt}  % 不排序格式：按引用顺序编号
+% \bibliographystyle{ieeetr} % IEEE 格式：常用于工程领域
+
+\bibliography{references} % 使用与实例9相同的 references.bib 文件
+
+\end{document}

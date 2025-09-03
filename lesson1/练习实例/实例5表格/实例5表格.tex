@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+
+\title{LaTeX表格练习}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle
+
+% --- 基本表格 ---
+\section{基本表格结构}
+最简单的表格由 \texttt{tabular} 环境构成。列格式在花括号内定义：
+\begin{itemize}
+    \item \texttt{l}: 左对齐 (Left)
+    \item \texttt{c}: 居中对齐 (Center)
+    \item \texttt{r}: 右对齐 (Right)
+    \item \texttt{|}: 竖线分隔符 (Vertical line)
+\end{itemize}
+
+% 示例1：无边框表格
+\begin{tabular}{lcr}
+姓名 & 年龄 & 城市 \\
+张三 & 20 & 北京 \\
+李四 & 22 & 上海 \\
+王五 & 19 & 广州 \\
+\end{tabular}
+
+% --- 带边框的表格 ---
+\section{带边框的表格}
+通过在列格式中添加 \texttt{|} 和使用 \texttt{\textbackslash hline} 命令，可以为表格添加边框。
+
+% 示例2：带完整边框的表格
+\begin{tabular}{|l|c|r|}
+\hline
+\textbf{姓名} & \textbf{年龄} & \textbf{城市} \\
+\hline
+张三 & 20 & 北京 \\
+\hline
+李四 & 22 & 上海 \\
+\hline
+王五 & 19 & 广州 \\
+\hline
+\end{tabular}
+
+% --- 复杂表格 ---
+\section{复杂表格示例}
+可以使用 \texttt{\textbackslash cline} 创建部分横线，实现更复杂的表格结构。
+
+% 示例3：部分横线的表格
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{分数组}} & \multicolumn{2}{c|}{\textbf{排名}} \\
+\hline
+数学 & 英语 & 数学 & 英语 \\
+\hline
+95 & 88 & 1 & 5 \\
+\cline{1-2}
+85 & 92 & 3 & 2 \\
+\hline
+\end{tabular}
+
+% --- 说明 ---
+% \multicolumn{2}{|c|}{...} 表示合并2列，居中对齐，有左右竖线。
+% \cline{1-2} 表示在第1列到第2列之间画一条横线。
+
+\end{document}

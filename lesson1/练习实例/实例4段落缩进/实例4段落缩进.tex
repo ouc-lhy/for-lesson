@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+
+\title{LaTeX 实验报告 - 段落缩进练习}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+% --- 设置全局段落缩进 ---
+% 默认情况下，article类的 \parindent 为15pt。这里我们将其设置为2em。
+\setlength{\parindent}{2em}
+
+\begin{document}
+
+\maketitle
+
+% --- 默认缩进 ---
+\section{默认段落缩进}
+在LaTeX中，除了每个章节（section）后的第一个段落外，其余段落的首行会自动缩进。这个缩进量由 \texttt{\textbackslash parindent} 控制。
+这是一个新的段落，它的首行会自动缩进2em（因为我们设置了 \texttt{\textbackslash setlength\{\textbackslash parindent\}\{2em\}}）。
+这是同一段落内的换行，不会缩进。只有新段落的首行才会缩进。
+
+这是另一个新段落，同样会自动缩进。
+
+% --- 取消单个段落缩进 ---
+\section{取消单个段落缩进}
+如果希望某个特定段落不缩进，可以在该段落开头使用 \texttt{\textbackslash noindent} 命令。
+\noindent 这个段落使用了 \texttt{\textbackslash noindent} 命令，因此首行没有缩进。这在需要顶格书写时非常有用，例如在某些格式要求严格的文档中。
+
+这是一个正常的段落，它会继续缩进。
+
+% --- 全局取消缩进 ---
+\section{全局取消段落缩进}
+如果希望文档中所有段落都不缩进，可以在导言区（preamble）使用 \texttt{\textbackslash setlength\{\textbackslash parindent\}\{0pt\}}。
+% 注意：此命令已在导言区设置，此处仅为说明。
+% \setlength{\parindent}{0pt} % 如果取消注释并重新编译，后续所有段落将无缩进
+% 但为了演示，我们在此处不改变全局设置。
+
+% --- 悬挂缩进 ---
+\section{悬挂缩进}
+悬挂缩进是指第一行不缩进，而后续行缩进。这可以通过 \texttt{\textbackslash hangindent} 和 \texttt{\textbackslash hangafter} 命令实现。
+\hangindent=1cm % 设置悬挂缩进量为1cm
+\hangafter=1   % 从第一行之后开始悬挂（即第一行不缩进，后续行缩进）
+这是一个实现悬挂缩进的段落。第一行顶格，从第二行开始向右缩进1厘米。这种格式常用于参考文献条目或项目符号列表的描述部分。
+
+这是另一个普通段落，它遵循全局的首行缩进设置。
+
+\end{document}

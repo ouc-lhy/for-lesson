@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{pgfplots} % 用于绘制函数图像 (基于 TikZ)
+\pgfplotsset{compat=1.18} % 设置兼容性，建议使用较新版本
+\usepackage{lipsum} % 生成示例文本
+
+\title{LaTeX 实验报告 - 函数图像绘制}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+\begin{document}
+
+\maketitle
+
+% --- 引言 ---
+\section{引言}
+在数学和科学领域，可视化函数图像是理解其性质的关键。LaTeX通过 \texttt{pgfplots} 宏包，能够直接在文档中绘制高质量、可缩放的矢量图。这避免了使用外部软件绘图再导入可能带来的分辨率和字体不一致问题。
+
+% --- 基本函数图像 ---
+\section{基本函数图像}
+使用 \texttt{pgfplots} 绘制函数非常直观。
+
+% --- 图像1：多项式函数 ---
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=10cm, % 图像宽度
+            height=7cm, % 图像高度
+            xlabel={$x$}, % x轴标签
+            ylabel={$y$}, % y轴标签
+            title={二次函数 $y = x^2 - 2x + 1$}, % 图像标题
+            grid=major, % 显示主网格线
+            xmin=-3, xmax=5, % x轴范围
+            ymin=-1, ymax=10, % y轴范围
+            axis lines=middle, % 坐标轴在原点相交
+            enlargelimits=true, % 稍微扩大坐标轴范围
+            clip=false % 允许标注超出坐标轴范围
+        ]
+        % 绘制函数 y = x^2 - 2x + 1
+        \addplot [
+            domain=-2:4, % 函数定义域
+            samples=100, % 采样点数，越多曲线越平滑
+            color=blue, % 线条颜色
+            thick % 线条粗细
+        ] 
+        {x^2 - 2*x + 1};
+        
+        % 可选：在图像上添加点或标注
+        % \addplot[mark=*, only marks] coordinates {(1,0)} node[anchor=north] {顶点};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{二次函数图像}
+    \label{fig:quadratic}
+\end{figure}
+
+
+% --- 图像2：三角函数 ---
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=6cm,
+            xlabel={$x$ (弧度)},
+            ylabel={$y$},
+            title={正弦和余弦函数},
+            grid=both, % 显示主网格和次网格
+            xmin=0, xmax=4*pi,
+            ymin=-1.5, ymax=1.5,
+            xtick={0,1.57,3.14,4.71,6.28,7.85,9.42,10.99,12.56}, % x轴刻度
+            xticklabels={$0$, $\pi/2$, $\pi$, $3\pi/2$, $2\pi$, $5\pi/2$, $3\pi$, $7\pi/2$, $4\pi$}, % x轴刻度标签
+            axis lines=middle,
+            enlargelimits=true,
+            clip=false
+        ]
+        % 绘制 sin(x)
+        \addplot [
+            domain=0:4*pi,
+            samples=200,
+            color=red,
+            thick,
+            dashed % 虚线
+        ] 
+        {sin(deg(x))}; % pgfplots中三角函数默认用度，deg()将弧度转为度
+        
+        % 绘制 cos(x)
+        \addplot [
+            domain=0:4*pi,
+            samples=200,
+            color=blue,
+            thick
+        ] 
+        {cos(deg(x))};
+        
+        % 添加图例
+        \legend{$\sin(x)$, $\cos(x)$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{正弦和余弦函数图像}
+    \label{fig:trig}
+\end{figure}
+
+\end{document}

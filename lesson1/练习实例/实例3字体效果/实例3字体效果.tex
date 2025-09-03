@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{xcolor} % 引入xcolor宏包以支持更多颜色
+
+\title{LaTeX 实验报告 - 字体效果练习}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle
+
+% --- 字体样式 ---
+\section{字体样式}
+LaTeX提供了多种命令来改变文本的外观：
+\begin{itemize}
+    \item \textit{斜体文本}：使用 \texttt{\textbackslash textit\{...\}}。
+    \item \textbf{粗体文本}：使用 \texttt{\textbackslash textbf\{...\}}。
+    \item \texttt{等宽字体}：使用 \texttt{\textbackslash texttt\{...\}}，常用于代码或文件名。
+    \item \textsc{小型大写字母}：使用 \texttt{\textbackslash textsc\{...\}}。
+    \item \textsl{倾斜字体}：使用 \texttt{\textbackslash textsl\{...\}}。
+    \item \textrm{罗马字体}：使用 \texttt{\textbackslash textrm\{...\}}。
+    \item \textsf{无衬线字体}：使用 \texttt{\textbackslash textsf\{...\}}。
+    \item \underline{下划线文本}：使用 \texttt{\textbackslash underline\{...\}}。
+\end{itemize}
+
+% --- 字体大小 ---
+\section{字体大小}
+可以使用以下命令调整字体大小：
+\begin{itemize}
+    \item {\tiny 极小字号}
+    \item {\scriptsize 脚本大小}
+    \item {\footnotesize 脚注大小}
+    \item {\small 小字号}
+    \item {\normalsize 正常字号} (默认)
+    \item {\large 大字号}
+    \item {\Large 较大字号}
+    \item {\LARGE 更大字号}
+    \item {\huge 巨大字号}
+    \item {\Huge 特大字号}
+\end{itemize}
+
+% --- 字体颜色 ---
+\section{字体颜色}
+通过 \texttt{xcolor} 宏包，可以为文本和背景添加颜色：
+\begin{itemize}
+    \item {\color{red}红色文本}
+    \item {\color{blue}蓝色文本}
+    \item {\color{green}绿色文本}
+    \item \colorbox{yellow}{黄色背景文本}
+    \item \colorbox{gray}{\color{white}白色文字在灰色背景上}
+\end{itemize}
+
+% --- 综合应用 ---
+\section{综合应用示例}
+\large \textbf{\color{blue}这是一个综合示例！}
+
+这行文字使用了 \texttt{\textbackslash large} 放大，\texttt{\textbackslash textbf} 加粗，并用 \texttt{\textbackslash color\{blue\}} 设置为蓝色。这展示了如何将多个格式命令组合使用。
+
+\end{document}

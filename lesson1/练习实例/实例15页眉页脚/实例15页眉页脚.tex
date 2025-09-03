@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{fancyhdr} % 用于设置页眉页脚
+\usepackage{graphicx} % 插入图片
+\usepackage{lastpage} % 获取总页数
+\usepackage{geometry} % 设置页面边距
+\usepackage{xcolor} % 颜色支持
+
+% 设置页面边距
+\geometry{left=3cm,right=2.5cm,top=3cm,bottom=2.5cm}
+
+\title{LaTeX页眉页脚}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+% --- 配置 fancyhdr ---
+\pagestyle{fancy} % 使用fancy页眉页脚样式
+\fancyhf{} % 清空默认的页眉页脚内容
+
+% 设置页眉（适用于所有页面）
+\fancyhead[L]{\small\leftmark} % 左侧：当前章节名
+\fancyhead[C]{\small LaTeX页眉页脚设置} % 中间：文档标题
+\fancyhead[R]{\small\thepage/\pageref{LastPage}} % 右侧：页码/总页数
+
+% 设置页脚（适用于所有页面）
+\fancyfoot[L]{\small 刘浩洋 24040021022} % 左侧：作者信息
+\fancyfoot[C]{\small \today} % 中间：当前日期
+\fancyfoot[R]{\small 第\thepage 页} % 右侧：中文页码格式
+
+% 设置页眉页脚线样式
+\renewcommand{\headrulewidth}{0.6pt} % 页眉线宽度
+\renewcommand{\headrule}{\hrule width\headwidth height\headrulewidth depth0pt \vskip-\headrulewidth}
+\renewcommand{\footrulewidth}{0.4pt} % 页脚线宽度
+
+% 重新定义plain样式（章节首页）
+\fancypagestyle{plain}{%
+    \fancyhf{} % 清空
+    \fancyhead[L]{\small\leftmark} % 保持章节名
+    \fancyhead[R]{\small\thepage/\pageref{LastPage}} % 保持页码
+    \fancyfoot[L]{\small 刘浩洋 24040021022} % 保持作者信息
+    \fancyfoot[C]{\small \today} % 保持日期
+    \fancyfoot[R]{\small 第\thepage 页} % 保持页码格式
+    \renewcommand{\headrulewidth}{0.6pt} % 保持页眉线
+    \renewcommand{\footrulewidth}{0.4pt} % 保持页脚线
+}
+
+% 设置章节标题格式
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-30pt}{40pt}
+
+\begin{document}
+
+\maketitle
+
+% 标题页使用空页眉页脚
+\thispagestyle{empty}
+
+% --- 摘要 ---
+\begin{abstract}
+\thispagestyle{fancy} % 确保摘要页有页眉页脚
+本报告详细演示了如何使用 \texttt{fancyhdr} 宏包自定义LaTeX文档的页眉和页脚。通过设置 \texttt{\textbackslash fancyhead} 和 \texttt{\textbackslash fancyfoot} 命令，可以灵活地在页面的左、中、右位置放置章节标题、页码、文档标题等信息。报告展示了基本配置、线条控制以及为不同页面（如章节首页）设置特殊样式的完整流程。结果表明，\texttt{fancyhdr} 宏包是提升LaTeX文档专业性和美观度的有效工具。
+\end{abstract}
+
+% 目录页
+\tableofcontents
+\thispagestyle{fancy} % 确保目录页有页眉页脚
+
+% --- 正文 ---
+\chapter{引言}
+LaTeX是一种高质量的排版系统，广泛应用于学术出版和科技文档制作。在撰写长篇文档时，良好的页眉页脚设计不仅能提升文档的专业性，还能方便读者导航和定位内容。
+
+本报告将详细介绍如何使用fancyhdr宏包自定义LaTeX文档的页眉和页脚设置，包括基本配置方法和高级定制技巧。
+
+\section{研究背景}
+随着学术交流的日益频繁，规范的文档格式显得尤为重要。页眉页脚作为文档的重要组成部分，不仅承载着页码信息，还可以展示章节标题、作者信息、文档属性等内容。
+
+传统的LaTeX默认页眉页脚样式较为简单，无法满足多样化需求。fancyhdr宏包应运而生，为用户提供了灵活且强大的页眉页脚定制功能。
+
+\section{研究目标}
+本研究旨在探索fancyhdr宏包的核心功能和使用方法，具体目标包括：
+
+1. 掌握fancyhdr宏包的基本命令和配置方式
+2. 学习如何在文档不同部分设置不同的页眉页脚样式
+3. 了解页眉页脚线条的自定义方法
+4. 实现一个完整的页眉页脚定制案例
+
+\chapter{fancyhdr 宏包详解}
+fancyhdr宏包是LaTeX中用于自定义页眉页脚的最常用工具之一。它提供了丰富的命令和选项，允许用户在文档的奇数页、偶数页以及不同章节中设置不同的页眉页脚内容。
+
+\section{基本命令}
+fancyhdr宏包的核心命令包括：\texttt{\textbackslash fancyhead}、\texttt{\textbackslash fancyfoot}和\texttt{\textbackslash fancyhf}。这些命令接受三个位置参数：[L]（左）、[C]（中）和[R]（右），用于指定相应位置显示的内容。
+
+用户可以在这些位置插入静态文本、动态标记（如章节标题）、页码或自定义命令输出。
+
+\section{高级配置}
+除了基本的内容设置外，fancyhdr还支持多种高级配置选项：
+
+1. 页眉页脚线条样式定制：可以调整线条的粗细、颜色甚至完全隐藏
+2. 不同页面样式定义：可以为普通页、章节首页等设置不同的页眉页脚
+3. 奇偶页差异化设计：可以分别为奇数页和偶数页设置不同的布局
+4. 字段宽度调整：可以控制左、中、右三个区域的宽度比例
+
+通过这些高级功能，用户可以创建出既美观又实用的页眉页脚设计，大大提升文档的专业程度和可读性。
+
+\chapter{实际应用案例}
+在实际文档制作中，合理的页眉页脚设置能够显著提升文档质量。以下是一些常见场景的应用示例。
+
+\section{学术论文格式}
+学术论文通常要求在页眉中包含论文标题或简短标题，页脚中包含页码和日期。使用fancyhdr可以轻松实现这一要求。
+
+\section{技术报告格式}
+技术报告可能需要在页眉中显示章节名称，在页脚中显示公司logo或保密级别信息。fancyhdr提供了足够的灵活性来满足这些需求。
+
+\section{书籍排版}
+书籍排版通常需要区分奇偶页，奇数页显示章节标题，偶数页显示书名。fancyhdr的奇偶页差异化功能非常适合这种场景。
+
+\end{document}

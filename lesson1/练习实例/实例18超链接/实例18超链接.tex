@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage[colorlinks, linkcolor=blue, urlcolor=red]{hyperref} % 使用 hyperref 宏包添加超链接支持
+% colorlinks: 使链接带有颜色而非边框
+% linkcolor: 设置内部链接的颜色（如目录、引用）
+% urlcolor: 设置网址链接的颜色
+
+\title{LaTeX 实验报告 - 超链接使用}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+\begin{document}
+
+\maketitle
+
+\section{引言}
+在现代科技文献中，超链接是非常重要的组成部分。它们可以方便地将读者引导至相关的在线资源或文档内的特定部分。LaTeX通过 `hyperref` 宏包提供了强大的超链接功能。本文将介绍如何在LaTeX文档中使用超链接。
+
+\section{基本超链接}
+使用 `hyperref` 宏包提供的命令，可以轻松地插入网页链接和电子邮件地址。
+
+\subsection{网页链接}
+要创建一个网页链接，可以使用 `\href{URL}{text}` 命令。例如，点击 \href{https://www.latex-project.org/}{这里} 访问 LaTeX 官方网站。
+
+或者，如果只需要显示 URL，可以使用 `\url{URL}` 命令，比如访问 \url{https://www.overleaf.com/}。
+
+\subsection{邮件链接}
+对于电子邮件链接，同样可以使用 `\href` 命令。例如，发送邮件给 \href{mailto:example@example.com}{示例邮箱}。
+
+\section{内部超链接}
+除了外部链接，`hyperref` 还允许在同一文档内创建指向其他位置的链接。这通常用于长篇文档中，帮助读者快速导航到相关内容。
+
+\subsection{标签与引用}
+首先，在需要链接到的位置放置一个标签，使用 `\label{marker}`。然后，在文档的任何地方使用 `\ref{marker}` 或 `\pageref{marker}` 来引用该位置。`hyperref` 会自动将其转换为可点击的链接。
+
+例如，见第\ref{sec:example}节“示例”（位于第\pageref{sec:example}页）。
+
+\subsection{显式超链接}
+更灵活的方法是使用 `\hypertarget` 和 `\hyperlink` 命令来创建和链接到特定位置。
+
+\hypertarget{mytarget}{这是一个目标位置}。你可以从文档的任何地方通过以下链接跳转到这里：\hyperlink{mytarget}{跳转到目标位置}。
+
+\section{示例}
+\label{sec:example}
+这里是文档的一个示例部分，它被标记了标签 `sec:example`。如前面所述，可以通过 `\ref{sec:example}` 或者直接使用超链接 `\hyperlink{mytarget}{跳转到目标位置}` 来访问。
+
+\section{结论}
+通过使用 `hyperref` 宏包，LaTeX 文档能够包含丰富的超链接，从而增强文档的互动性和实用性。无论是外部链接还是内部导航，都可以极大地改善读者的阅读体验。掌握这些技巧，可以使你的文档更加专业和用户友好。
+
+\end{document}

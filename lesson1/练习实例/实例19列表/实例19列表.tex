@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{lipsum} % 生成示例文本
+
+\title{LaTeX 实验报告 - 列表环境使用}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+\begin{document}
+
+\maketitle
+
+\section{引言}
+在撰写文档时，将信息以列表形式呈现是提高可读性和条理性的重要手段。LaTeX提供了简单而强大的列表环境，主要包括无序的项目列表（`itemize`）和有序的编号列表（`enumerate`）。正确使用列表环境可以使文档结构清晰，重点突出。
+
+\section{项目列表 (itemize)}
+项目列表用于罗列没有特定顺序的条目，每个条目前面通常有一个项目符号（如圆点）。
+
+\subsection{基本语法}
+使用 `\texttt{\textbackslash begin\{itemize\}}` 和 `\texttt{\textbackslash end\{itemize\}}` 开始和结束一个项目列表。在列表内部，使用 `\texttt{\textbackslash item}` 命令来标记每一项。
+
+\subsection{示例}
+以下是一个关于LaTeX优点的项目列表：
+
+\begin{itemize}
+    \item 输出质量高，排版精美。
+    \item 数学公式输入强大且规范。
+    \item 分离内容与格式，便于修改整体风格。
+    \item 开源免费，社区支持广泛。
+    \item 特别适合撰写科技论文、报告和书籍。
+\end{itemize}
+
+\section{编号列表 (enumerate)}
+编号列表用于罗列有特定顺序或需要强调先后次序的条目，每个条目前面有数字或字母编号。
+
+\subsection{基本语法}
+使用 `\texttt{\textbackslash begin\{enumerate\}}` 和 `\texttt{\textbackslash end\{enumerate\}}` 开始和结束一个编号列表。同样使用 `\texttt{\textbackslash item}` 命令来标记每一项。
+
+\subsection{示例}
+以下是使用LaTeX编写文档的基本步骤：
+
+\begin{enumerate}
+    \item 安装LaTeX发行版（如TeX Live或MiKTeX）。
+    \item 选择一个编辑器（如TeXworks, VS Code, 或在线平台Overleaf）。
+    \item 创建一个 `.tex` 文件。
+    \item 在文件中编写LaTeX代码，包括文档类、宏包、标题、作者和正文。
+    \item 使用编译器（如XeLaTeX或PDFLaTeX）将 `.tex` 文件编译成PDF。
+    \item 检查PDF输出，根据需要修改源代码并重新编译。
+\end{enumerate}
+
+\section{列表嵌套}
+LaTeX允许将 `itemize` 和 `enumerate` 环境相互嵌套，以创建层次化的信息结构。
+
+\subsection{示例}
+以下是一个嵌套列表，展示了一个学习计划：
+
+\begin{enumerate}
+    \item 学习LaTeX基础
+        \begin{itemize}
+            \item 掌握文档结构
+            \item 学习文本格式化
+            \item 练习插入图片和表格
+        \end{itemize}
+    \item 深入数学公式
+        \begin{enumerate}
+            \item 基本数学模式
+            \item 矩阵与多行公式
+            \item 定理环境
+        \end{enumerate}
+    \item 探索高级功能
+        \begin{itemize}
+            \item 绘制流程图 (TikZ)
+            \item 制作演示文稿 (Beamer)
+            \item 管理参考文献 (BibTeX)
+        \end{itemize}
+\end{enumerate}
+
+\section{结论}
+通过本次练习，我掌握了LaTeX中 `itemize` 和 `enumerate` 两种列表环境的使用方法。项目列表适用于罗列并列的观点或特性，而编号列表则适用于描述有先后顺序的步骤或流程。更重要的是，列表的嵌套功能使得构建复杂的、层次分明的信息结构成为可能。合理使用列表是提升文档专业性和可读性的基础技能，对于撰写清晰的报告和论文至关重要。
+
+\end{document}

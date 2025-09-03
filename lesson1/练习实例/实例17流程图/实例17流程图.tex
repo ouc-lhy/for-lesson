@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{tikz} % 核心绘图宏包
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning} % 加载所需库
+% shapes.geometric: 提供菱形(diamond)等形状
+% arrows.meta: 提供更美观的箭头
+% positioning: 提供更灵活的节点定位 (如 below=of A)
+
+\title{LaTeX 实验报告 - 流程图绘制}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+% --- 定义流程图样式 ---
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=Stealth] % Stealth 是一种箭头样式
+
+\begin{document}
+
+\maketitle
+
+\section{引言}
+流程图是描述算法、程序或工作流程的常用工具。LaTeX通过强大的 \texttt{TikZ} 宏包，能够创建完全可定制、高质量的矢量流程图。与使用外部绘图软件相比，TikZ流程图与文档风格完全一致，且易于修改。
+
+\section{TikZ流程图实例}
+以下是一个简单的“用户登录验证”流程图示例。
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[node distance=2cm] % 设置默认节点间距
+        
+        % --- 定义流程图节点 ---
+        % 起始/结束
+        \node (start) [startstop] {开始};
+        % 输入/输出
+        \node (in1) [io, below=of start] {输入用户名和密码};
+        % 处理过程
+        \node (pro1) [process, below=of in1] {验证凭据};
+        % 判断决策
+        \node (dec1) [decision, below=of pro1, yshift=-0.5cm] {验证成功?};
+        % 处理过程
+        \node (pro2) [process, below=of dec1, yshift=-0.5cm] {登录系统};
+        % 起始/结束
+        \node (stop) [startstop, below=of pro2] {结束};
+        
+        % --- 绘制连接箭头 ---
+        \draw [arrow] (start) -- (in1);
+        \draw [arrow] (in1) -- (pro1);
+        \draw [arrow] (pro1) -- (dec1);
+        % 从决策节点出来的箭头需要标记
+        \draw [arrow] (dec1) -- node[anchor=east] {是} (pro2); % 在箭头左侧添加标签"是"
+        \draw [arrow] (dec1.east) -- ++(1.5,0) |- (in1.east); % 从dec1右侧出来，水平移动，再垂直向下连接到in1右侧
+        % 结束
+        \draw [arrow] (pro2) -- (stop);
+        
+    \end{tikzpicture}
+    \caption{用户登录验证流程图}
+    \label{fig:flowchart}
+\end{figure}
+
+\section{代码说明}
+\begin{itemize}
+    \item \textbf{\texttt{\textbackslash tikzstyle}}: 用于定义不同类型的节点样式（如起始、处理、决策）。通过设置形状、大小、颜色和边框来区分。
+    \item \textbf{\texttt{\textbackslash node}}: 创建一个节点。语法为 \texttt{\textbackslash node (<name>) [<style>] \{<text>\};}。其中 \texttt{(<name>)} 是节点的标签，用于后续连接。
+    \item \textbf{节点定位}: 使用 \texttt{positioning} 库的 \texttt{below=of <node>} 语法可以精确地将一个节点放在另一个节点的下方。\texttt{yshift} 用于微调垂直位置。
+    \item \textbf{\texttt{\textbackslash draw}}: 用于绘制线条和箭头。\texttt{[arrow]} 应用预定义的箭头样式。\texttt{--} 表示直线连接，\texttt{|-} 表示先垂直后水平（或先水平后垂直）的折线。
+    \item \textbf{路径操作}: \texttt{(dec1.east) -- ++(1.5,0) |- (in1.east)} 这条命令创建了一个从决策节点右侧出发，向右水平延伸1.5cm，然后垂直向下，最后水平连接到输入节点右侧的折线。这常用于表示循环。
+    \item \textbf{添加标签}: 使用 \texttt{node[anchor=east] \{是\}} 可以在箭头上添加文本标签。
+\end{itemize}
+
+\section{结论}
+使用 \texttt{TikZ} 绘制流程图虽然需要编写代码，但其灵活性和精确性远超所见即所得的绘图工具。生成的流程图是完美的矢量图，与LaTeX文档浑然一体。通过定义样式和利用强大的定位与路径功能，可以创建出任何复杂度的专业流程图。
+
+\end{document}

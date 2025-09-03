@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{graphicx} % 插入图片
+\usepackage{fancyhdr} % 自定义页眉页脚
+\usepackage[colorlinks, linkcolor=blue, urlcolor=red]{hyperref} % 超链接
+\usepackage{lipsum} % 生成示例文本
+
+\title{物理实验报告\\\large 牛顿第二定律的验证}
+\author{刘浩洋 24040021022}
+\date{2025年9月1日}
+
+% --- 配置页眉页脚 ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark} % 左侧显示章节名
+\fancyhead[R]{\thepage} % 右侧显示页码
+\renewcommand{\headrulewidth}{0.4pt} % 页眉线
+\fancypagestyle{plain}{% 重新定义章节首页样式
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\begin{document}
+
+\maketitle
+
+% --- 摘要 ---
+\begin{abstract}
+本实验旨在通过测量不同外力作用下物体的加速度，验证牛顿第二定律 $F = ma$ 的正确性。实验采用气垫导轨减小摩擦力，利用光电门和数字计时器测量滑块通过固定距离的时间，从而计算加速度。通过改变悬挂砝码的质量来改变外力 $F$，并保持滑块总质量 $m$ 不变。实验数据表明，外力 $F$ 与加速度 $a$ 呈线性关系，线性拟合的斜率即为滑块的总质量 $m$。实验结果与理论预测相符，验证了牛顿第二定律。
+\end{abstract}
+
+\tableofcontents
+\newpage % 目录后换页
+
+% --- 正文 ---
+\section{引言}
+牛顿第二定律是经典力学的基础，其数学表达式为：
+\begin{equation}
+    F = ma
+\end{equation}
+其中，$F$ 为物体所受合外力，$m$ 为物体质量，$a$ 为物体加速度。本实验通过控制变量法，验证该定律。
+
+\section{实验原理}
+\subsection{理论依据}
+根据牛顿第二定律，当物体质量 $m$ 保持不变时，物体的加速度 $a$ 与所受合外力 $F$ 成正比，即 $a \propto F$。
+
+\subsection{实验方法}
+实验装置如图\ref{fig:setup}所示。通过改变悬挂砝码的质量 $m_g$ 来改变外力 $F \approx m_g g$（忽略滑轮摩擦和细线质量）。利用公式 $a = \frac{2s}{t^2}$ 计算加速度，其中 $s$ 为滑块运动的固定距离，$t$ 为通过该距离的时间。
+
+\section{实验装置与步骤}
+\subsection{实验装置}
+主要装置包括：
+\begin{itemize}
+    \item 气垫导轨及滑块
+    \item 光电门和数字计时器
+    \item 砝码组
+    \item 细线和滑轮
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    % \includegraphics[width=0.6\textwidth]{setup.jpg} % 实际使用时替换为真实图片路径
+    \framebox{\begin{minipage}{8cm} % 此处用一个方框代替真实图片，用于演示
+        \centering
+        实验装置示意图 (此处应插入图片)
+    \end{minipage}}
+    \caption{实验装置示意图}
+    \label{fig:setup}
+\end{figure}
+
+\subsection{实验步骤}
+\begin{enumerate}
+    \item 调节气垫导轨水平。
+    \item 测量滑块和附加砝码的总质量 $m$。
+    \item 固定光电门位置，测量距离 $s$。
+    \item 将质量为 $m_g$ 的砝码挂在细线一端，另一端连接滑块。
+    \item 打开气源，释放滑块，记录通过距离 $s$ 的时间 $t$。
+    \item 改变 $m_g$，重复步骤5，获取多组数据。
+\end{enumerate}
+
+\section{数据记录与处理}
+\subsection{数据记录}
+实验数据如下表所示：
+
+% 简单表格示例
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$m_g$ (g) & $F \approx m_g g$ (N) & $t$ (s) & $a = 2s/t^2$ (m/s²) \\
+\hline
+10 & 0.098 & 1.42 & 0.996 \\
+20 & 0.196 & 1.00 & 2.000 \\
+30 & 0.294 & 0.82 & 2.951 \\
+40 & 0.392 & 0.71 & 3.972 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{数据处理}
+根据表中数据，绘制 $F-a$ 关系图。使用线性拟合，得到拟合方程 $F = ka$，其中斜率 $k$ 应等于滑块的总质量 $m$。将拟合得到的 $k$ 与实验测量的 $m$ 进行比较，计算相对误差。
+
+\section{结果与讨论}
+实验测得滑块总质量 $m_{\text{测}} = 0.400 \, \text{kg}$。$F-a$ 图的线性拟合斜率 $k = 0.397 \, \text{kg}$。相对误差为：
+\begin{equation}
+    E = \frac{|m_{\text{测}} - k|}{m_{\text{测}}} \times 100\% = \frac{|0.400 - 0.397|}{0.400} \times 100\% = 0.75\%
+\end{equation}
+误差较小，说明实验结果与牛顿第二定律相符。
+
+\section{结论}
+通过本实验，我们成功验证了牛顿第二定律 $F = ma$。在质量一定的情况下，物体的加速度与所受合外力成正比。实验数据的线性关系良好，相对误差较小，达到了实验预期目标。
+
+\section{参考文献}
+\begin{enumerate}
+    \item \url{https://zh.wikipedia.org/wiki/牛顿第二定律}
+    \item 张三, 李四. 大学物理实验教程[M]. 北京: 高等教育出版社, 2020.
+\end{enumerate}
+
+\end{document}

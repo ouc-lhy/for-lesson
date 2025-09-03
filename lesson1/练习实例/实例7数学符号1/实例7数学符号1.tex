@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+
+\title{LaTeX 实验报告 - 数学符号练习}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle
+
+% --- 上标和下标 ---
+\section{上标和下标}
+在数学模式中，使用 \texttt{\^{}} 表示上标，\texttt{\_} 表示下标。如果上标或下标包含多个字符，需要用花括号 \texttt{\{...\}} 括起来。
+
+\begin{itemize}
+    \item \textbf{简单上标}：$x^2$, $e^x$, $a^n$
+    \item \textbf{复杂上标}：$e^{x^2 + y^2}$, $2^{n+1}$
+    \item \textbf{简单下标}：$x_1$, $a_i$, $y_{max}$
+    \item \textbf{复杂下标}：$a_{ij}$, $x_{n+1}$
+    \item \textbf{上下标组合}：$x_1^2$, $a_{ij}^{(k)}$
+\end{itemize}
+
+% --- 根号 ---
+\section{根号}
+使用 \texttt{\textbackslash sqrt} 命令生成根号。对于n次方根，使用 \texttt{\textbackslash sqrt[n]\{...\}}。
+
+\begin{itemize}
+    \item \textbf{平方根}：$\sqrt{2}$, $\sqrt{x^2 + y^2}$
+    \item \textbf{立方根}：$\sqrt[3]{8} = 2$
+    \item \textbf{n次方根}：$\sqrt[n]{a}$, $\sqrt[5]{32} = 2$
+\end{itemize}
+
+% --- 分数 ---
+\section{分数}
+使用 \texttt{\textbackslash frac\{分子\}\{分母\}} 命令生成分数。在行内公式和独立公式中显示效果略有不同。
+
+\begin{itemize}
+    \item \textbf{行内分数}：一个简单的分数是 $\frac{1}{2}$，另一个是 $\frac{a+b}{c}$。
+    \item \textbf{独立分数}：
+    \[
+    \frac{x^2 - 1}{x + 1} = x - 1 \quad (x \neq -1)
+    \]
+    \item \textbf{复杂分数}：
+    \[
+    \frac{a + \frac{b}{c}}{d} = \frac{a}{d} + \frac{b}{cd}
+    \]
+\end{itemize}
+
+\end{document}

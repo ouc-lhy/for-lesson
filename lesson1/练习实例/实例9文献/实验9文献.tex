@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{hyperref} % 可选：为引用添加超链接
+
+\title{LaTeX 文献引用}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle
+
+% --- 正文开始 ---
+\section{引言}
+在学术写作中，正确引用参考文献至关重要。LaTeX提供了强大的工具来管理文献。Donald E. Knuth \cite{knuth1984} 发明了TeX排版系统，该系统是LaTeX的基础。LaTeX本身由 Leslie Lamport \cite{lamport1994} 进一步发展和完善。关于LaTeX的详细教程，可以参考 \cite{wiki2025}。
+
+% --- 生成参考文献列表 ---
+\bibliographystyle{plain} % 选择引用样式：plain, abbrv, alpha 等
+\bibliography{references} % 指定bib文件名为 references.bib
+
+\end{document}

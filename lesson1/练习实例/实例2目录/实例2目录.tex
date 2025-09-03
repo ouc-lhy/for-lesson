@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex} % 支持中文
+
+\title{LaTeX目录生成}
+\author{刘浩洋 24040021022}
+\date{2025年8月31日}
+
+\begin{document}
+
+\maketitle % 生成标题
+
+% --- 生成目录 ---
+% 将目录页的页码设置为罗马数字 (i, ii, iii...)
+\pagenumbering{roman}
+\tableofcontents % 核心命令：生成目录
+\newpage % 另起一页，开始正文
+\pagenumbering{arabic} % 将正文页码重置为阿拉伯数字 (1, 2, 3...)
+
+% --- 正文开始 ---
+\section{引言}
+这是引言部分的内容。
+
+\subsection{研究背景}
+这是研究背景的内容。
+
+\section{实验方法}
+这是实验方法部分的内容。
+
+\subsection{数据收集}
+描述数据收集过程。
+
+\subsection{数据分析}
+描述数据分析方法。
+
+\section{结论}
+这是结论部分的内容。
+
+% --- 示例：在正文中引用章节 ---
+在 \ref{sec:method} 节（第 \pageref{sec:method} 页）中，我们详细介绍了实验方法。
+\label{sec:method} % 注意：label应紧跟在section命令之后
+
+\end{document}
