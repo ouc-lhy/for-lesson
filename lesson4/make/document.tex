@@ -1,0 +1,26 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{中文文档示例（含图表示例）}
+\author{张三}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+你好，\LaTeX！这是一个中文文档。
+
+\section{数据图表}
+下图展示了 $ y = x^2 $ 的函数图像：
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{plot-data.png}
+  \caption{平方函数图像}
+  \label{fig:plot}
+\end{figure}
+
+\end{document}
